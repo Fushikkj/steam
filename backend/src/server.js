@@ -9,9 +9,13 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+app.get("/", (req, res) => {
+    res.json({ mensagem: "API funcionando!" });
+});
+
 app.use("/api/usuarios", usuarioRoutes);
 app.use("/api/atividades", atividadeRoutes);
 
-app.listen(process.env.PORT || 3000, () => {
+app.listen(3000, () => {
     console.log("Servidor rodando na porta 3000");
 });
